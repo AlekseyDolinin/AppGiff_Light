@@ -36,7 +36,10 @@ class FavoriteViewController: UIViewController, GADBannerViewDelegate, UIGesture
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        arrayLinkFavoriteGifs = UserDefaults.standard.array(forKey: "favoritesLinks") as! [String]
+        
+        if let favoritesLinks = UserDefaults.standard.array(forKey: "favoritesLinks") {
+            arrayLinkFavoriteGifs = favoritesLinks as! [String]
+        }
         
         // если в избранном есть ссылки
         if arrayLinkFavoriteGifs.count > 0 && imagesDataFavoriteGifs.isEmpty {
