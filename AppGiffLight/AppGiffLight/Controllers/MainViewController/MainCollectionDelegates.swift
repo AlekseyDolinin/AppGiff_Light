@@ -3,14 +3,14 @@ import UIKit
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return arrayAllGifs.count
+        return arrayAllGifsData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let searchCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCell", for: indexPath) as! SearchCell
-        searchCell.imageGif.image = UIImage.gifImageWithData(arrayAllGifs[indexPath.row].dataImage ?? Data())
+        searchCell.imageGif.image = UIImage.gifImageWithData(arrayAllGifsData[indexPath.row].dataImage )
        
-        let link: String = arrayAllGifs[indexPath.row].linkImage!
+        let link: String = arrayAllGifsData[indexPath.row].linkImage
         
         if MainViewController.arrayFavoritesLink.contains(link) {
             searchCell.buttonAddInFavorites.setImage(UIImage(named: "iconLikePink"), for: .normal)
@@ -21,9 +21,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         searchCell.buttonAddInFavorites.tag = indexPath.row
         searchCell.buttonAddInFavorites.addTarget(self, action: #selector(favoriteAction), for: .touchUpInside)
         
-        //подзагрузка
-        if indexPath.row == arrayAllGifs.count - 1 { // last cell
-            if totalCountSearchGif > arrayAllGifs.count { // more items to fetch
+        /// подзагрузка
+        /// last cell
+        if indexPath.row == arrayAllGifsData.count - 1 {
+            if totalCountSearchGif > arrayAllGifsData.count {
                 offset = offset + 10
                 searchRequest(offset)
             }
@@ -32,7 +33,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func collectionView(collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth: CGFloat) -> CGFloat {
-        let image: UIImage = UIImage.gifImageWithData(arrayAllGifs[indexPath.row].dataImage ?? Data()) ?? UIImage()
+        let image: UIImage = UIImage.gifImageWithData(arrayAllGifsData[indexPath.row].dataImage ) ?? UIImage()
         return image.height(forWidth: withWidth)
     }
     
@@ -46,7 +47,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let storiesVC = StoriesNavigationController()
         storiesVC.setup(viewController: vc, previewFrame: collectionView.cellForItem(at: indexPath) as? PreviewStoryViewProtocol)
         
-        vc.dataGif = arrayAllGifs[indexPath.row].dataImage ?? Data()
+        vc.dataGif = arrayAllGifsData[indexPath.row].dataImage
         present(storiesVC, animated: true, completion: nil)
     }
 }

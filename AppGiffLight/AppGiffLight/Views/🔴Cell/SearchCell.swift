@@ -1,12 +1,5 @@
 import UIKit
 
-public protocol PreviewStoryViewProtocol: AnyObject {
-    
-    var endFrame: CGRect { get }
-    var startFrame: CGRect { get }
-    
-}
-
 class SearchCell: UICollectionViewCell, PreviewStoryViewProtocol {
     
     @IBOutlet weak var imageGif: UIImageView!

@@ -2,16 +2,16 @@ import SwiftyJSON
 
 extension MainViewController {
     
-    func completionHandlerSearch(json: JSON, completion: @escaping ([GifImage]) -> ()) {
+    func completionHandlerSearch(json: JSON, completion: @escaping ([GifImageData]) -> ()) {
         
         self.totalCountSearchGif = json["pagination"]["total_count"].intValue
         
         print("всего найдено: \(self.totalCountSearchGif)")
         
-        var arrayGifsOffSet: [GifImage] = []
+        var arrayGifsOffSet: [GifImageData] = []
         let dataGifs = json["data"]
         
-        if arrayAllGifs.isEmpty {
+        if arrayAllGifsData.isEmpty {
             mainView.nothingWasFoundLabel.isHidden = json["pagination"]["count"].intValue == 0 ? false : true
         }
         
@@ -23,7 +23,7 @@ extension MainViewController {
             
             API().loadData(urlString: link) { (dataImage) in
                 
-                let imageGIf = GifImage(id: id, dataImage: dataImage, linkImage: link)
+                let imageGIf = GifImageData(id: id, dataImage: dataImage, linkImage: link)
                 
                 arrayGifsOffSet.append(imageGIf)
                 

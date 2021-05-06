@@ -25,11 +25,11 @@ extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         let vc = storyboard?.instantiateViewController(withIdentifier: "DetailTVC") as! DetailTableViewController
-        vc.modalTransitionStyle = .coverVertical
-        vc.modalPresentationStyle = .pageSheet
+        let storiesVC = StoriesNavigationController()
+        storiesVC.setup(viewController: vc, previewFrame: collectionView.cellForItem(at: indexPath) as? PreviewStoryViewProtocol)
         vc.dataGif = imagesDataFavoriteGifs[indexPath.row]
-        present(vc, animated: true, completion: nil)
+        vc.modalPresentationStyle = .fullScreen
+        present(storiesVC, animated: true, completion: nil)
     } 
 }

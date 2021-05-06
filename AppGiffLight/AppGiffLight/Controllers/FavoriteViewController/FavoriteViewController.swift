@@ -2,25 +2,20 @@ import UIKit
 import GoogleMobileAds
 import PinterestLayout
 
-class FavoriteViewController: UIViewController, GADBannerViewDelegate, UIGestureRecognizerDelegate, PinterestLayoutDelegate, GADInterstitialDelegate {
+class FavoriteViewController: UIViewController, GADBannerViewDelegate, UIGestureRecognizerDelegate, PinterestLayoutDelegate {
 
     var favoriteView: FavoriteView! {
         guard isViewLoaded else {return nil}
         return (view as! FavoriteView)
     }
     
-    // images для передачи на detailController
+    /// images для передачи на detailController
     var imagesDataFavoriteGifs = [Data]()
-    
     var arrayLinkFavoriteGifs = [String]()
-    
     var bannerView: GADBannerView!
     var interstitial: GADInterstitial!
-    
     let layout = PinterestLayout()
-    
     var countShowFullViewAds = 0
-    var dataSelectGifForLongPress = Data()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +24,7 @@ class FavoriteViewController: UIViewController, GADBannerViewDelegate, UIGesture
         
         favoriteView.configure()
         setCollection()
-        setupLongGestureRecognizerOnCollection()
-        
         setGadBanner()
-        setGadFullView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,7 +33,7 @@ class FavoriteViewController: UIViewController, GADBannerViewDelegate, UIGesture
             arrayLinkFavoriteGifs = favoritesLinks as! [String]
         }
         
-        // если в избранном есть ссылки
+        /// если в избранном есть ссылки
         if arrayLinkFavoriteGifs.count > 0 && imagesDataFavoriteGifs.isEmpty {
             loadFavotiteData()
             favoriteView.loader.startAnimating()
@@ -64,31 +56,6 @@ class FavoriteViewController: UIViewController, GADBannerViewDelegate, UIGesture
         }
     }
     
-    private func setupLongGestureRecognizerOnCollection() {
-        let longPressedGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
-        longPressedGesture.minimumPressDuration = 0.6
-        longPressedGesture.delegate = self
-        longPressedGesture.delaysTouchesBegan = true
-        favoriteView.collectionFavoriteGifs?.addGestureRecognizer(longPressedGesture)
-    }
-    
-    @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
-        if (gestureRecognizer.state != .began) { return }
-        let p = gestureRecognizer.location(in: favoriteView.collectionFavoriteGifs)
-        if let indexPath = favoriteView.collectionFavoriteGifs?.indexPathForItem(at: p) {
-            print("long press")
-            
-            dataSelectGifForLongPress = imagesDataFavoriteGifs[indexPath.row]
-            
-            if interstitial.isReady == true && countShowFullViewAds % 3 == 0 && countShowFullViewAds > 0 {
-                print("ролик готов")
-                interstitial.present(fromRootViewController: self)
-            } else {
-                showControllerShare(dataGif: dataSelectGifForLongPress)
-            }
-        }
-    }
-    
     func showControllerShare(dataGif: Data) {
         let shareController = UIActivityViewController(activityItems: [dataGif], applicationActivities: nil)
         shareController.completionWithItemsHandler = {_, bool, _, _ in
@@ -102,18 +69,18 @@ class FavoriteViewController: UIViewController, GADBannerViewDelegate, UIGesture
         present(shareController, animated: true, completion: nil)
     }
     
-    //MARK:- работа с избранным
+    // MARK: - работа с избранным
     @objc func favoriteAction(sender: UIButton) {
         
         let link = arrayLinkFavoriteGifs[sender.tag]
         
-        // находим индекс ссылки в избранном
+        /// находим индекс ссылки в избранном
         if let index = arrayLinkFavoriteGifs.firstIndex(of: link) {
-            //ссылка есть в избранном
-            //удаление ссылки из избранного
+            /// ссылка есть в избранном
+            /// удаление ссылки из избранного
             arrayLinkFavoriteGifs.remove(at: index)
             
-            //удаление gif из скаченных
+            /// удаление gif из скаченных
             imagesDataFavoriteGifs.remove(at: index)
             favoriteView.collectionFavoriteGifs.reloadData()
             
@@ -124,7 +91,7 @@ class FavoriteViewController: UIViewController, GADBannerViewDelegate, UIGesture
             }
         }
         
-        //запись нового массива с линками
+        /// запись нового массива с линками
         UserDefaults.standard.set(self.arrayLinkFavoriteGifs, forKey: "favoritesLinks")
         UserDefaults.standard.synchronize()
     }

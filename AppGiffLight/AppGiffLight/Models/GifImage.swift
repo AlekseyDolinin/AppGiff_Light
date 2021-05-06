@@ -1,12 +1,14 @@
 import UIKit
 
-class GifImage {
+class GifImageData {
     
-    var id: String?
-    var dataImage: Data?
-    var linkImage: String?
+    var id: String
+    var dataImage: Data
+    var linkImage: String
     
-    init(id: String?, dataImage: Data?, linkImage: String?) {
+    init(id: String,
+         dataImage: Data,
+         linkImage: String) {
         
         self.id = id
         self.dataImage = dataImage
