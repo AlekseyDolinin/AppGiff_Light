@@ -11,6 +11,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="SF-Compact-Rounded-Bold.otf">
+            <string>SFCompactRounded-Bold</string>
+        </array>
+        <array key="SF-Compact-Rounded-Regular.otf">
+            <string>SFCompactRounded-Regular</string>
+        </array>
         <array key="SF-Pro-Display-Light.otf">
             <string>SFProDisplay-Light</string>
         </array>
@@ -392,7 +398,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nothing was found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKO-C0-sPq">
-                                <rect key="frame" x="16" y="270" width="288" height="28"/>
+                                <rect key="frame" x="16" y="269.5" width="288" height="29"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="24"/>
                                 <color key="textColor" name="White_"/>
                                 <nil key="highlightedColor"/>
@@ -429,13 +435,135 @@
             </objects>
             <point key="canvasLocation" x="2826" y="136"/>
         </scene>
+        <!--App Tracking Modal View Controller-->
+        <scene sceneID="tQc-n2-RUG">
+            <objects>
+                <viewController storyboardIdentifier="AppTrackingModalViewController" id="WOi-x3-dBS" customClass="AppTrackingModalViewController" customModule="AppGiff" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wBM-YH-Ucc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow tracking on the next screen for:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oon-yB-Ukj">
+                                <rect key="frame" x="16" y="84" width="288" height="56"/>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Bold" family="SF Compact Rounded" pointSize="24"/>
+                                <color key="textColor" name="Pink_"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="lTS-mJ-ief">
+                                <rect key="frame" x="16" y="188" width="288" height="150"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9Ms-Rk-1Wh">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="42"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="G1c-1c-PR6">
+                                                <rect key="frame" x="0.0" y="1" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="2K2-gi-gdz"/>
+                                                    <constraint firstAttribute="height" constant="40" id="5cS-dN-Lbs"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Special ofers and promotions just for you" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MhX-gz-0Qo">
+                                                <rect key="frame" x="56" y="0.0" width="232" height="42"/>
+                                                <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="18"/>
+                                                <color key="textColor" name="White_"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="uUN-m5-kdt">
+                                        <rect key="frame" x="0.0" y="54" width="288" height="42"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tap" translatesAutoresizingMaskIntoConstraints="NO" id="m8g-f3-PQW">
+                                                <rect key="frame" x="0.0" y="1" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="35j-ud-cLG"/>
+                                                    <constraint firstAttribute="height" constant="40" id="CJB-o3-F8t"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advertisements that match your interests" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLm-MD-1Ky">
+                                                <rect key="frame" x="56" y="0.0" width="232" height="42"/>
+                                                <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="18"/>
+                                                <color key="textColor" name="White_"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="1HI-mO-Ee6">
+                                        <rect key="frame" x="0.0" y="108" width="288" height="42"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diagram" translatesAutoresizingMaskIntoConstraints="NO" id="Gaj-YK-Mhi">
+                                                <rect key="frame" x="0.0" y="1" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="AXk-Mr-e6K"/>
+                                                    <constraint firstAttribute="width" constant="40" id="BEH-49-3lW"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An improved personalized experience over time" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4FW-dW-Cns">
+                                                <rect key="frame" x="56" y="0.0" width="232" height="42"/>
+                                                <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="18"/>
+                                                <color key="textColor" name="White_"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can change this option later in the Setting app." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIc-4S-cr1">
+                                <rect key="frame" x="16" y="378" width="288" height="42"/>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="18"/>
+                                <color key="textColor" name="White_"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VpO-Rh-hcN">
+                                <rect key="frame" x="60" y="476" width="200" height="50"/>
+                                <color key="backgroundColor" name="Pink_"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6bc-er-QBw"/>
+                                    <constraint firstAttribute="width" constant="200" id="UmQ-VJ-ikb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="20"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" name="White_"/>
+                                </state>
+                                <connections>
+                                    <action selector="continueAction:" destination="WOi-x3-dBS" eventType="touchUpInside" id="lhk-RP-B1E"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="Black_"/>
+                        <constraints>
+                            <constraint firstItem="lTS-mJ-ief" firstAttribute="top" secondItem="oon-yB-Ukj" secondAttribute="bottom" constant="48" id="2D7-Co-JcJ"/>
+                            <constraint firstItem="oon-yB-Ukj" firstAttribute="top" secondItem="MN8-Kr-VXT" secondAttribute="top" constant="64" id="EX8-LM-Ivz"/>
+                            <constraint firstItem="MIc-4S-cr1" firstAttribute="top" secondItem="lTS-mJ-ief" secondAttribute="bottom" constant="40" id="NRA-zJ-Esq"/>
+                            <constraint firstItem="lTS-mJ-ief" firstAttribute="leading" secondItem="MN8-Kr-VXT" secondAttribute="leading" constant="16" id="Rb0-aQ-eWr"/>
+                            <constraint firstItem="VpO-Rh-hcN" firstAttribute="top" secondItem="MIc-4S-cr1" secondAttribute="bottom" constant="56" id="VZS-HI-VhX"/>
+                            <constraint firstItem="oon-yB-Ukj" firstAttribute="leading" secondItem="MN8-Kr-VXT" secondAttribute="leading" constant="16" id="Z6o-dk-gXg"/>
+                            <constraint firstItem="VpO-Rh-hcN" firstAttribute="centerX" secondItem="wBM-YH-Ucc" secondAttribute="centerX" id="fqI-fA-EmG"/>
+                            <constraint firstItem="MN8-Kr-VXT" firstAttribute="trailing" secondItem="MIc-4S-cr1" secondAttribute="trailing" constant="16" id="fu1-aH-XYD"/>
+                            <constraint firstItem="MIc-4S-cr1" firstAttribute="leading" secondItem="MN8-Kr-VXT" secondAttribute="leading" constant="16" id="ioE-pv-dCC"/>
+                            <constraint firstItem="MN8-Kr-VXT" firstAttribute="trailing" secondItem="oon-yB-Ukj" secondAttribute="trailing" constant="16" id="iwr-rE-sjg"/>
+                            <constraint firstItem="MN8-Kr-VXT" firstAttribute="trailing" secondItem="lTS-mJ-ief" secondAttribute="trailing" constant="16" id="sGJ-eQ-gxD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MN8-Kr-VXT"/>
+                    </view>
+                    <connections>
+                        <outlet property="continueButton" destination="VpO-Rh-hcN" id="5E5-ip-Vnt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NSf-Qt-7m2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1106" y="-565"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="diagram" width="50" height="50"/>
+        <image name="heart" width="50" height="50"/>
         <image name="iconBack" width="50" height="50"/>
         <image name="iconDontLikePink" width="50" height="50"/>
         <image name="iconLike" width="50" height="50"/>
         <image name="iconSearch" width="50" height="50"/>
         <image name="logoSmall" width="81" height="33"/>
+        <image name="tap" width="50" height="50"/>
         <namedColor name="Black_">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

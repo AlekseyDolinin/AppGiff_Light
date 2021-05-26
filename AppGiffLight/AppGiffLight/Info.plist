@@ -2,25 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>SFProDisplay-Light</string>
-		<string>SFProDisplay-Regular</string>
-		<string>SFProDisplay-Medium</string>
-		<string>SFProDisplay-Thin</string>
-		<string>SFProDisplay-Ultralight</string>
-		<string>SFProDisplay-Bold</string>
-		<string>SFProDisplay-Semibold</string>
-		<string>SFProDisplay-Heavy</string>
-		<string>SFProDisplay-Black</string>
-	</array>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
-	<key>GADApplicationIdentifier</key>
-	<string>ca-app-pub-8093774413708674~7639754085</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>Your data will only be used to deliver personalized ads to you.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -36,11 +19,30 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.5</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-8093774413708674~7639754085</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SFProDisplay-Light</string>
+		<string>SFProDisplay-Regular</string>
+		<string>SFProDisplay-Medium</string>
+		<string>SFProDisplay-Thin</string>
+		<string>SFProDisplay-Ultralight</string>
+		<string>SFProDisplay-Bold</string>
+		<string>SFProDisplay-Semibold</string>
+		<string>SFProDisplay-Heavy</string>
+		<string>SFProDisplay-Black</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
