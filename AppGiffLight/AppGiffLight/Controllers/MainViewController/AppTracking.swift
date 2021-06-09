@@ -1,5 +1,6 @@
 import UIKit
-//import AppTrackingTransparency
+#if canImport(AppTrackingTransparency)
+import AppTrackingTransparency
 
 extension MainViewController {
     
@@ -20,29 +21,29 @@ extension MainViewController {
         print("requestTrackingAuthorization")
         #endif
         guard #available(iOS 14.5, *) else { return }
-//        ATTrackingManager.requestTrackingAuthorization { status in
-//            switch status {
-//            case .notDetermined:
-//                print("notDetermined")
-//                statusAppTracking = "notDetermined"
-//                break
-//            case .restricted:
-//                print("restricted")
-//                statusAppTracking = "restricted"
-//                break
-//            case .denied:
-//                print("denied")
-//                statusAppTracking = "denied"
-//                break
-//            case .authorized:
-//                print("authorized")
-//                statusAppTracking = "authorized"
-//                break
-//            @unknown default:
-//                break
-//            }
-//            UserDefaults.standard.setValue(statusAppTracking, forKey: "statusATTKey")
-//        }
+        ATTrackingManager.requestTrackingAuthorization { status in
+            switch status {
+            case .notDetermined:
+                print("notDetermined")
+                statusAppTracking = "notDetermined"
+                break
+            case .restricted:
+                print("restricted")
+                statusAppTracking = "restricted"
+                break
+            case .denied:
+                print("denied")
+                statusAppTracking = "denied"
+                break
+            case .authorized:
+                print("authorized")
+                statusAppTracking = "authorized"
+                break
+            @unknown default:
+                break
+            }
+            UserDefaults.standard.setValue(statusAppTracking, forKey: "statusATTKey")
+        }
     }
-    
 }
+#endif
